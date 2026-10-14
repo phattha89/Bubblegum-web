@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maison Boutique</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#ffffff;--sf:#fff;--ink:#1f2937;--mute:#6b7280;--gold:#ff6a3d;--line:#eceff3;--ph:#fff1ec;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1115;--sf:#181b21;--ink:#f3f4f6;--mute:#9ca3af;--gold:#ff8a63;--line:#262a33;--ph:#2a1f1b}}
+:root[data-theme="dark"]{--bg:#0f1115;--sf:#181b21;--ink:#f3f4f6;--mute:#9ca3af;--gold:#ff8a63;--line:#262a33;--ph:#2a1f1b}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Kanit','Noto Sans Thai',system-ui,sans-serif;font-weight:400;line-height:1.6}
+.serif{font-family:'Cormorant Garamond','Noto Serif Thai',serif}
+header{text-align:center;padding:48px 20px 28px;background:linear-gradient(var(--ph),var(--bg));margin-bottom:22px}
+.eyebrow{letter-spacing:.35em;font-size:11px;color:var(--gold);text-transform:uppercase}
+h1{font-weight:500;font-size:clamp(30px,7vw,48px);margin:10px 0 6px}
+.tag{color:var(--mute);font-size:14px;max-width:460px;margin:0 auto}
+.rule{width:48px;height:4px;border-radius:4px;background:var(--gold);margin:20px auto 0}
+.bar{max-width:1080px;margin:0 auto;padding:0 20px}
+.search{width:100%;padding:12px 20px;border:1px solid var(--line);border-radius:999px;background:var(--sf);color:var(--ink);font:inherit;outline:0;margin-bottom:16px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:22px}
+.chip{flex:none;border:1px solid var(--line);background:transparent;color:var(--mute);padding:7px 18px;font:inherit;font-size:13px;cursor:pointer;border-radius:999px}
+.chip.on{background:var(--gold);color:#fff;border-color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 14px;max-width:1080px;margin:0 auto;padding:0 20px 60px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr);gap:28px 22px}}
+@media(min-width:980px){.grid{grid-template-columns:repeat(4,1fr)}}
+.card{cursor:pointer;background:var(--sf);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.25s}
+.card:hover{box-shadow:0 8px 22px rgba(255,106,61,.16);transform:translateY(-2px)}
+.im{aspect-ratio:1;background:var(--ph);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.im img{width:100%;height:100%;object-fit:cover;display:block}
+.im span{font-size:44px;font-weight:500;color:var(--gold);opacity:.7}
+.ci{padding:12px 12px 14px}
+.cat{font-size:10px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
+.nm{font-size:14px;font-weight:400;margin:2px 0 4px;line-height:1.4}
+.pr{font-size:17px;font-weight:500;color:var(--gold)}
+.empty{grid-column:1/-1;text-align:center;color:var(--mute);padding:60px 0}
+footer{text-align:center;color:var(--mute);font-size:12px;padding:30px 20px 40px;border-top:1px solid var(--line)}
+footer button{background:none;border:0;color:var(--mute);font:inherit;cursor:pointer;text-decoration:underline;margin-top:8px}
+.ov{position:fixed;inset:0;background:rgba(10,9,8,.6);display:none;align-items:flex-end;justify-content:center;z-index:9;padding-top:env(safe-area-inset-top,0px)}
+.ov.show{display:flex}
+@media(min-width:700px){.ov{align-items:center}}
+.md{background:var(--bg);border-radius:20px 20px 0 0;width:100%;max-width:520px;max-height:92vh;overflow-y:auto;padding:22px 22px calc(26px + env(safe-area-inset-bottom,0px));position:relative}
+.x{position:absolute;top:10px;right:14px;background:none;border:0;font-size:26px;color:var(--mute);cursor:pointer}
+.md .im{margin:8px 0 16px}
+.md h2{font-weight:500;font-size:24px;margin:2px 0}.md .im{border-radius:14px}
+.desc{color:var(--mute);font-size:14px;white-space:pre-wrap;margin:10px 0 18px}
+.buy{display:block;text-align:center;padding:13px;margin-top:10px;border-radius:12px;background:var(--gold);color:#fff;text-decoration:none;font-size:15px;font-weight:500;transition:.2s}
+.buy:hover{opacity:.88}
+.lbl{font-size:11px;letter-spacing:.2em;color:var(--mute);text-transform:uppercase;margin-top:6px}
+label{display:block;font-size:12px;color:var(--mute);margin:14px 0 4px}
+input,select,textarea{width:100%;padding:10px 12px;border:1px solid var(--line);background:var(--sf);color:var(--ink);font:inherit;font-size:14px;border-radius:10px}
+.lr{display:flex;gap:6px;margin-bottom:6px}.lr select{width:38%;flex:none}
+.btn{padding:12px 18px;border:1px solid var(--gold);background:var(--gold);color:#fff;font:inherit;font-size:14px;cursor:pointer;border-radius:12px}
+.btn.o{background:transparent;color:var(--ink);border-color:var(--line)}
+.row{display:flex;gap:8px;margin-top:20px}.row .btn{flex:1}
+.ad{font-size:13px;color:var(--mute);border-top:1px solid var(--line);padding:10px 0;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.ad button{background:none;border:0;color:var(--gold);cursor:pointer;font:inherit}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 18px;font-size:13px;display:none;z-index:20}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div class="ov" id="ov"><div class="md" id="md"></div></div>
+<div id="toast"></div>
+<script type="application/json" id="data">{"shop":{"name":"Maison Boutique","tag":"คัดสรรสินค้าคุณภาพ เพื่อคุณโดยเฉพาะ"},"products":[{"id":"s1","name":"ตัวอย่างสินค้า A","price":"1,290","cat":"ผลิตภัณฑ์ดูแลผิว","img":"","desc":"นี่คือสินค้าตัวอย่าง กดปุ่ม จัดการร้าน ด้านล่างเพื่อแก้ไขหรือลบ","links":[]},{"id":"s2","name":"ตัวอย่างสินค้า B","price":"890","cat":"เครื่องประดับ","img":"","desc":"","links":[]},{"id":"s3","name":"ตัวอย่างสินค้า C","price":"2,490","cat":"ของใช้ในบ้าน","img":"","desc":"","links":[]}]}</script>
+<script>
+const PL=["Shopee","Lazada","TikTok Shop","เว็บไซต์ร้าน","LINE","Facebook","อื่นๆ"];
+let D=JSON.parse(document.getElementById('data').textContent);
+let cat='ทั้งหมด',q='',art=null,canEdit=false,tmp=null;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const safe=u=>/^https?:\/\//i.test(u)?u:'';
+const toast=t=>{const e=$('toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',2600)};
+const cats=()=>[...new Set([...(D.cats||[]),...D.products.map(p=>p.cat).filter(Boolean)])];
+const imgBox=p=>`<div class="im">${p.img?`<img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy">`:`<span>${esc((p.name||'?').charAt(0))}</span>`}</div>`;
+
+function render(){
+  const list=D.products.filter(p=>(cat==='ทั้งหมด'||p.cat===cat)&&(!q||(p.name+p.cat).toLowerCase().includes(q.toLowerCase())));
+  $('app').innerHTML=`<header><div class="eyebrow">Collection</div><h1>${esc(D.shop.name)}</h1><p class="tag">${esc(D.shop.tag)}</p><div class="rule"></div></header>
+  <div class="bar"><input class="search" id="q" placeholder="ค้นหาสินค้า…" value="${esc(q)}">
+  <div class="chips">${['ทั้งหมด',...cats()].map(c=>`<button class="chip ${c===cat?'on':''}" data-c="${esc(c)}">${esc(c)}</button>`).join('')}</div></div>
+  <div class="grid">${list.length?list.map(p=>`<div class="card" data-id="${esc(p.id)}">${imgBox(p)}<div class="ci"><div class="cat">${esc(p.cat)}</div><div class="nm">${esc(p.name)}</div><div class="pr">${p.price?'฿'+esc(p.price):''}</div></div></div>`).join(''):'<div class="empty">ยังไม่มีสินค้าในหมวดนี้</div>'}</div>
+  <footer>© ${esc(D.shop.name)} · สั่งซื้อผ่านช่องทางที่เชื่อถือได้<br>${canEdit?'<button id="adm">จัดการร้าน</button>':''}</footer>`;
+  $('q').oninput=e=>{q=e.target.value;const p=e.target.selectionStart;render();const n=$('q');n.focus();n.setSelectionRange(p,p)};
+  document.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{cat=b.dataset.c;render()});
+  document.querySelectorAll('.card').forEach(c=>c.onclick=()=>view(c.dataset.id));
+  if($('adm'))$('adm').onclick=()=>admin();
+}
+function open_(h){$('md').innerHTML='<button class="x" id="cl">×</button>'+h;$('ov').classList.add('show');$('cl').onclick=close_}
+function close_(){$('ov').classList.remove('show')}
+$('ov').onclick=e=>{if(e.target.id==='ov')close_()};
+
+function view(id){
+  const p=D.products.find(x=>x.id===id);if(!p)return;
+  const ls=(p.links||[]).filter(l=>safe(l.u));
+  open_(`${imgBox(p)}<div class="cat">${esc(p.cat)}</div><h2>${esc(p.name)}</h2><div class="pr">${p.price?'฿'+esc(p.price):''}</div>
+  ${p.desc?`<div class="desc">${esc(p.desc)}</div>`:''}<div class="lbl">เลือกช่องทางสั่งซื้อ</div>
+  ${ls.length?ls.map(l=>`<a class="buy" href="${esc(safe(l.u))}" target="_blank" rel="noopener noreferrer">สั่งซื้อผ่าน ${esc(l.p)}</a>`).join(''):'<p class="desc">ยังไม่มีลิงก์สั่งซื้อ</p>'}`);
+}
+
+function admin(){ct=null;
+  open_(`<h2>จัดการร้าน</h2><label>ชื่อร้าน</label><input id="sn" value="${esc(D.shop.name)}"><label>คำโปรย</label><input id="st" value="${esc(D.shop.tag)}">
+  <div class="row"><button class="btn o" id="ss">บันทึกข้อมูลร้าน</button><button class="btn" id="np">+ เพิ่มสินค้า</button></div>
+  <button class="btn o" id="mc" style="width:100%;margin-top:8px">จัดการหมวดหมู่ (${cats().length})</button><div class="lbl" style="margin-top:22px">สินค้าทั้งหมด (${D.products.length})</div>
+  ${D.products.map(p=>`<div class="ad"><span>${esc(p.name)}</span><span><button data-e="${esc(p.id)}">แก้ไข</button> <button data-d="${esc(p.id)}">ลบ</button></span></div>`).join('')}`);
+  $('ss').onclick=()=>{D.shop.name=$('sn').value.trim()||D.shop.name;D.shop.tag=$('st').value.trim();save()};
+  $('np').onclick=()=>form(null);$('mc').onclick=catMgr;
+  document.querySelectorAll('[data-e]').forEach(b=>b.onclick=()=>form(b.dataset.e));
+  document.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{if(confirm('ลบสินค้านี้?')){D.products=D.products.filter(p=>p.id!==b.dataset.d);save()}});
+}
+
+let ct=null;
+function sync(){document.querySelectorAll('[data-i]').forEach(e=>{ct[e.dataset.i].n=e.value})}
+function catMgr(){
+  if(!ct)ct=cats().map(n=>({o:n,n}));
+  const b='class="btn o" style="padding:0 10px;flex:none"';
+  open_(`<h2>จัดการหมวดหมู่</h2><p class="desc" style="margin:6px 0 12px">แก้ชื่อ จัดลำดับด้วย ↑ ↓ หรือลบหมวดได้ สินค้าในหมวดที่ลบจะย้ายไปหมวด "อื่นๆ"</p>
+  <div>${ct.map((c,i)=>`<div class="lr"><input data-i="${i}" value="${esc(c.n)}"><button ${b} data-u="${i}">↑</button><button ${b} data-w="${i}">↓</button><button ${b} data-x="${i}">×</button></div>`).join('')||'<p class="desc">ยังไม่มีหมวดหมู่</p>'}</div>
+  <div class="lr" style="margin-top:14px"><input id="nc" placeholder="ชื่อหมวดใหม่"><button class="btn" id="ac" style="flex:none">+ เพิ่ม</button></div>
+  <div class="row"><button class="btn o" id="bk">ยกเลิก</button><button class="btn" id="cs">บันทึกและเผยแพร่</button></div>`);
+  $('bk').onclick=admin;
+  $('ac').onclick=()=>{sync();const v=$('nc').value.trim();if(v&&!ct.some(c=>c.n.trim()===v))ct.push({o:null,n:v});catMgr()};
+  document.querySelectorAll('[data-u]').forEach(x=>x.onclick=()=>{sync();const i=+x.dataset.u;if(i>0){[ct[i-1],ct[i]]=[ct[i],ct[i-1]];catMgr()}});
+  document.querySelectorAll('[data-w]').forEach(x=>x.onclick=()=>{sync();const i=+x.dataset.w;if(i<ct.length-1){[ct[i+1],ct[i]]=[ct[i],ct[i+1]];catMgr()}});
+  document.querySelectorAll('[data-x]').forEach(x=>x.onclick=()=>{sync();const i=+x.dataset.x,c=ct[i],k=c.o?D.products.filter(p=>p.cat===c.o).length:0;if(!k||confirm('สินค้า '+k+' ชิ้นในหมวดนี้จะถูกย้ายไปหมวด "อื่นๆ" ต้องการลบ?')){ct.splice(i,1);catMgr()}});
+  $('cs').onclick=()=>{
+    sync();
+    const names=[];
+    ct.forEach(c=>{c.n=c.n.trim()||c.o||'';if(c.n&&!names.includes(c.n))names.push(c.n)});
+    D.products.forEach(p=>{const c=ct.find(x=>x.o===p.cat);p.cat=c?c.n:'อื่นๆ'});
+    D.cats=names;cat='ทั้งหมด';save();
+  };
+}
+function linkRow(l){return`<div class="lr"><select>${PL.map(x=>`<option ${x===l.p?'selected':''}>${x}</option>`).join('')}</select><input placeholder="https://..." value="${esc(l.u)}"><button class="btn o" style="padding:0 12px" onclick="this.parentNode.remove()">×</button></div>`}
+function form(id){
+  const p=id?D.products.find(x=>x.id===id):{name:'',price:'',cat:'',img:'',desc:'',links:[{p:'Shopee',u:''}]};
+  tmp=p.img;
+  open_(`<h2>${id?'แก้ไขสินค้า':'เพิ่มสินค้า'}</h2>
+  <label>รูปสินค้า</label><div class="im" id="pv" style="max-height:180px">${p.img?`<img src="${esc(p.img)}">`:'<span>+</span>'}</div><input type="file" id="fi" accept="image/*">
+  <label>ชื่อสินค้า</label><input id="fn" value="${esc(p.name)}">
+  <label>ราคา (บาท)</label><input id="fp" value="${esc(p.price)}" inputmode="decimal">
+  <label>หมวดหมู่ (พิมพ์ใหม่หรือเลือกจากเดิม)</label><input id="fc" list="cl" value="${esc(p.cat)}"><datalist id="cl">${cats().map(c=>`<option value="${esc(c)}">`).join('')}</datalist>
+  <label>รายละเอียด</label><textarea id="fd" rows="3">${esc(p.desc)}</textarea>
+  <label>ลิงก์สั่งซื้อ</label><div id="ll">${(p.links.length?p.links:[{p:'Shopee',u:''}]).map(linkRow).join('')}</div>
+  <button class="btn o" id="al" style="width:100%">+ เพิ่มช่องทาง</button>
+  <div class="row"><button class="btn o" id="bk">ยกเลิก</button><button class="btn" id="sv">บันทึกและเผยแพร่</button></div>`);
+  $('al').onclick=()=>$('ll').insertAdjacentHTML('beforeend',linkRow({p:'Lazada',u:''}));
+  $('bk').onclick=admin;
+  $('fi').onchange=e=>{const f=e.target.files[0];if(!f)return;const im=new Image();im.onload=()=>{const s=Math.min(1,720/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*s;c.height=im.height*s;c.getContext('2d').drawImage(im,0,0,c.width,c.height);tmp=c.toDataURL('image/jpeg',.82);$('pv').innerHTML=`<img src="${tmp}">`};im.src=URL.createObjectURL(f)};
+  $('sv').onclick=()=>{
+    const links=[...document.querySelectorAll('#ll .lr')].map(r=>({p:r.querySelector('select').value,u:r.querySelector('input').value.trim()})).filter(l=>l.u);
+    if(links.some(l=>!safe(l.u)))return toast('ลิงก์ต้องขึ้นต้นด้วย https://');
+    const n={id:id||'p'+Date.now(),name:$('fn').value.trim(),price:$('fp').value.trim(),cat:$('fc').value.trim()||'อื่นๆ',img:tmp||'',desc:$('fd').value.trim(),links};
+    if(!n.name)return toast('กรุณาใส่ชื่อสินค้า');
+    if(id)D.products=D.products.map(x=>x.id===id?n:x);else D.products.push(n);
+    save();
+  };
+}
+
+async function save(){
+  if(!art)return toast('ยังบันทึกไม่ได้ในหน้านี้');
+  const doc=document.documentElement.cloneNode(true);
+  doc.querySelector('#data').textContent=JSON.stringify(D).replace(/</g,'\\u003c');
+  doc.querySelector('#app').innerHTML='';doc.querySelector('#md').innerHTML='';doc.querySelector('#ov').className='ov';
+  doc.querySelector('#toast').style.display='none';
+  try{toast('กำลังบันทึก…');await art.publish('<!DOCTYPE html>\n'+doc.outerHTML)}catch(e){toast('บันทึกไม่สำเร็จ ลองใหม่อีกครั้ง')}
+}
+
+render();
+(async()=>{try{
+  const u=await claude.use('user');art=await claude.use('artifact');
+  canEdit=!!(art&&u&&u.canEdit());render();
+}catch(e){}})();
+</script>
+</body>
+</html>
