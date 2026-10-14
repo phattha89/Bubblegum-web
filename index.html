@@ -2,7 +2,7 @@
 <html lang="th"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Maison Boutique</title>
+<title>BUBBLEGUM COLLECTIONS</title>
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&amp;display=swap" rel="stylesheet">
 <style>
 :root{--bg:#faf8f4;--sf:#fff;--ink:#1c1a17;--mute:#7a746a;--gold:#a8812f;--line:#e6e0d4;--ph:#efe9dc;--h1:#f3eee3;--h2:#efe9dc;--h3:#f3eee3;--pk:#a8812f;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -90,7 +90,7 @@ const toast=t=>{const e=$('toast');e.textContent=t;e.style.display='block';setTi
 const cats=()=>[...new Set([...(D.cats||[]),...D.products.map(p=>p.cat).filter(Boolean)])];
 const imgBox=p=>`<div class="im">${p.img?`<img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy">`:`<span>${esc((p.name||'?').charAt(0))}</span>`}</div>`;
 
-function render(){
+function render(){document.title=D.shop.name;
   const list=sortP(D.products.filter(p=>(cat==='ทั้งหมด'||p.cat===cat)&&(!q||(p.name+p.cat).toLowerCase().includes(q.toLowerCase()))));
   $('app').innerHTML=`<div class="top"><button class="tb" id="hm" aria-label="กลับหน้าแรก">${HOME}</button><div class="sw">${MAG}<input class="search" id="q" placeholder="ค้นหาสินค้า…" value="${esc(q)}"></div><button class="tb" id="th" aria-label="สลับโหมดสว่าง/มืด">${dk()?SUN:MOON}</button></div><div class="soc"><span>ติดตามเรา</span><a class='pill' style='--c:#ff0000' href='https://youtube.com/@bubblegummy8' target='_blank' rel='noopener noreferrer'><svg viewBox='0 0 24 24'><rect x='1' y='5' width='22' height='14' rx='4' fill='#ff0000'/><path d='M10 9l5 3-5 3z' fill='#fff'/></svg>YouTube</a><a class='pill' style='--c:#fe2c55' href='https://www.tiktok.com/@bubblegummy18_' target='_blank' rel='noopener noreferrer'><svg viewBox='0 0 24 24'><path transform='translate(-.8 .8)' fill='#25f4ee' d='M16.5 3c.3 2.3 1.7 3.8 4 4v3.1c-1.5 0-2.9-.4-4-1.1v6.2a5.6 5.6 0 1 1-5.6-5.6c.3 0 .6 0 .9.1v3.2a2.5 2.5 0 1 0 1.6 2.3V3z'/><path transform='translate(.8 -.8)' fill='#fe2c55' d='M16.5 3c.3 2.3 1.7 3.8 4 4v3.1c-1.5 0-2.9-.4-4-1.1v6.2a5.6 5.6 0 1 1-5.6-5.6c.3 0 .6 0 .9.1v3.2a2.5 2.5 0 1 0 1.6 2.3V3z'/><path fill='currentColor' d='M16.5 3c.3 2.3 1.7 3.8 4 4v3.1c-1.5 0-2.9-.4-4-1.1v6.2a5.6 5.6 0 1 1-5.6-5.6c.3 0 .6 0 .9.1v3.2a2.5 2.5 0 1 0 1.6 2.3V3z'/></svg>TikTok</a><a class='pill' style='--c:#ee4d2d' href='https://collshp.com/bubblegum18' target='_blank' rel='noopener noreferrer'><svg viewBox='0 0 24 24'><path d='M8.5 9V7.5a3.5 3.5 0 0 1 7 0V9' fill='none' stroke='#ee4d2d' stroke-width='1.8'/><rect x='4' y='8' width='16' height='14' rx='3' fill='#ee4d2d'/><text x='12' y='19' text-anchor='middle' font-size='9.5' font-weight='700' fill='#fff' font-family='Arial,sans-serif'>S</text></svg>Shopee</a></div><header><div class="eyebrow">Collection</div><h1>${esc(D.shop.name)}</h1><p class="tag">${esc(D.shop.tag)}</p><div class="rule"></div></header>
   <div class="bar">
